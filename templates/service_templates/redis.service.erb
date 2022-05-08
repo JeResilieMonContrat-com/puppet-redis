@@ -13,7 +13,7 @@ Type=forking
 ExecStart=/usr/bin/redis-server <%= @redis_file_name %>
 <% else -%>
 Type=notify
-ExecStart=/usr/bin/redis-server <%= @redis_file_name %> --supervised systemd
+ExecStart=/usr/bin/redis-server <%= @redis_file_name %> --supervised systemd --daemonize no
 <% end -%>
 ExecStop=/bin/kill -s TERM $MAINPID
 Restart=always
